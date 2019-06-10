@@ -1,0 +1,21 @@
+
+(copy file in backend)
+create docker container with spark on hadoop/hive? + doc/docker.md
+
+write script in docker (copy in dir backend) + doc/data preprocessing md
+                                            + doc/machine learning md
+            breakdown:
+                nlp analyse stock related news:
+                    remove stop word,
+                    embedding
+                    sentiment analysis (value)
+
+                stock value -> stock price 3 days later 1 higher 2 +-1% 3 lower than current 
+
+                value + stock value -> 
+
+
+
+
+
+
