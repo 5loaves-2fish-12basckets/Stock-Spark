@@ -1,4 +1,16 @@
 
+
+hive -> csv
+
+run on spark
+    train model
+    load model and use
+    iterate result
+
+write doc and code here
+dogit
+
+
 (copy file in backend)
 create docker container with spark on hadoop/hive? + doc/docker.md
 
