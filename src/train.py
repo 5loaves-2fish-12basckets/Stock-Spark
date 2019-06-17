@@ -90,6 +90,7 @@ if __name__ == '__main__':
                 tsm_dic = dic
             if len(dic) < min_count:
                 min_count = len(dic)
+            
         except:
             print(symbol)
             continue
