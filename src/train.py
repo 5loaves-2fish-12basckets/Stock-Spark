@@ -13,9 +13,6 @@ import pyspark
 from pyspark.sql.types import StructType, StructField, StringType, DoubleType, IntegerType
 
 
-
-
-
 from sparkflow.graph_utils import build_graph, build_adam_config
 from sparkflow.tensorflow_async import SparkAsyncDL
 
