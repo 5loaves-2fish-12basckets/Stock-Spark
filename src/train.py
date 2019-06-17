@@ -33,6 +33,8 @@ datadir = 'data'
 
 def main_collect():
     print('check data')
+    if not os.path.exists(datadir):
+        os.mkdir(datadir)
     if len(os.listdir(datadir)) == 0:
         print('     ## collecting all data##     ') 
         for targets in [targets_tech, targets_finn, targets_food]:
