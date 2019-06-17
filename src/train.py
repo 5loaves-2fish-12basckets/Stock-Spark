@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     main_collect()
 
-    task = sys.arvg[1] # tech, finn, food
+    task = sys.argv[1] # tech, finn, food
     ckptdir = os.path.join('ckpt', task)
 
     targets = [targets_tech, targets_finn, targets_food][['tech', 'finn', 'food'].index(sys.argv[1])]
