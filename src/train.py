@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     targets = [targets_tech, targets_finn, targets_food][['tech', 'finn', 'food'].index(sys.argv[1])]
     
-    conf = pyspark.SparkConf().setAppName("myAppName").set('spark.sql.catalogImplementation') # no hive
+    conf = pyspark.SparkConf().setAppName("myAppName") #.set('spark.sql.catalogImplementation') # no hive
     sc = pyspark.SparkContext(conf=conf)
     sqlContext = pyspark.sql.SQLContext(sc)
     dic_list = list()

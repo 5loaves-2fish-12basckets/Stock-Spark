@@ -21,3 +21,14 @@ contains the final presentation, report, and other introductory usage materials.
 `bash run.sh <dir>` to start up backend server and use model in `<dir>`
 
 (`<dir>` default: ckpt)
+
+
+## requirements
+
+python3
+pyspark
+sparkflow
+tensorflow
+tqdm
+
+alpha_vantage
