@@ -1,8 +1,6 @@
+https://github.com/lifeomic/sparkflow
 
-
-hive -> csv
-
-run on spark
+dogit, run on spark
     train model
     load model and use
     iterate result
