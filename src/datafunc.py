@@ -4,7 +4,7 @@ import csv
 # from subprocess import PIPE, Popen
 # import time
 
-def collect_data(datadir, targets)
+def collect_data(datadir, targets):
 
     # counter = 0
     for symbol in targets:
