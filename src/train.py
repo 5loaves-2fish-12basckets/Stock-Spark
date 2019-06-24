@@ -22,7 +22,7 @@ import sys
 # sys.path.append('src')
 
 from datafunc import collect_data
-from trainfunc import small_model
+from model import small_model
 
 targets_tech = ['GOOGL','FB','MSFT','AAPL','INTC','TSM','ORCL',
             'IBM','NVDA','ADBE','TXN','AVGO','ACN','CRM','QCOM']
