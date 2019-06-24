@@ -23,15 +23,16 @@ contains code for training, backend and frontend script
 * [`datafunc.py`](src/datafunc.py) is for calling alpha_vantage api and downloading csv files
 * [`model.py`](src/model.py) contains a small tensorflow model script
 * [`train.py`](src/train.py) is the main training algorithm
-* [frontend](src/frontend) contains frontend specifics
+
+#### [frontend](src/frontend)
+[frontend](src/frontend) contains frontend specifics, check the [README](src/frontend/README.md) for further introduction
 
 ## usage
 
-`bash train.sh <dir>` to train and save new model in `<dir>` 
-`bash run.sh <dir>` to start up backend server and use model in `<dir>`
-
-(`<dir>` is optional, default: ckpt)
-
+`bash train.sh <dir>` to train and save new model in `<dir>`      
+`bash run.sh <dir>` to start up backend server and use model in `<dir>`    
+  
+(`<dir>` is optional, default: ckpt)  
 
 ## requirements
 
@@ -44,5 +45,5 @@ alpha_vantage
 sparkflow
 
 ## references
-[alpha_vantage]
-[sparkflow]
+[alpha_vantage](https://www.alphavantage.co/)
+[sparkflow](https://github.com/lifeomic/sparkflow)
