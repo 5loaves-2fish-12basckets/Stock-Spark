@@ -25,7 +25,7 @@ contains code for training, backend and frontend script
 * [`train.py`](src/train.py) is the main training algorithm
 
 #### [frontend](src/frontend)
-[frontend](src/frontend) contains frontend specifics, check the [README](src/frontend/README.md) for further introduction
+[frontend](src/frontend) contains frontend specifics, check the [README](src/frontend/) for further introduction
 
 ## usage
 
