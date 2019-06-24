@@ -26,10 +26,10 @@ from trainfunc import small_model
 
 targets_tech = ['GOOGL','FB','MSFT','AAPL','INTC','TSM','ORCL',
             'IBM','NVDA','ADBE','TXN','AVGO','ACN','CRM','QCOM']
-targets_finn = ['MS','VFH','TSM','IXG','RYF','UYG','DFNL','PSCF',
+targets_etf = ['MS','VFH','TSM','IXG','RYF','UYG','DFNL','PSCF',
             'IAK','KBWP','CHIX','BDCS','KBWR','PFI','JHMF']
-targets_food = ['CY','KHC','AMAT','EBAY','URBN','ROST','ADI',
-            'LRCX','RRGB', 'MCD', 'TER', 'ACGL', 'TSCO', 'TIVO']
+targets_rand = ['CY','KHC','AMAT','EBAY','URBN','ROST','ADI',
+            'LRCX','RRGB', 'MCD', 'TER', 'ACGL', 'TSCO', 'TIVO', 'TSM']
 
 
 datadir = 'data'
@@ -40,7 +40,7 @@ def main_collect():
         os.mkdir(datadir)
     if len(os.listdir(datadir)) == 0:
         print('     ## collecting all data##     ') 
-        for targets in [targets_tech, targets_finn, targets_food]:
+        for targets in [targets_tech, targets_etf, targets_rand]:
             collect_data(datadir, targets)
 
 if __name__ == '__main__':
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     task = sys.argv[1] # tech, finn, food
     ckptdir = os.path.join('ckpt', task)
 
-    targets = [targets_tech, targets_finn, targets_food][['tech', 'finn', 'food'].index(sys.argv[1])]
+    targets = [targets_tech, targets_etf, targets_rand][['tech', 'etf', 'rand'].index(sys.argv[1])]
     
     conf = pyspark.SparkConf().setAppName("myAppName") #.set('spark.sql.catalogImplementation') # no hive
     sc = pyspark.SparkContext(conf=conf)
@@ -84,15 +84,17 @@ if __name__ == '__main__':
             df = sqlContext.createDataFrame(rdd, schema)
             df = df.drop('open').drop('high').drop('low').drop('volume')
             df = df.withColumn('close', df['close'].cast(DoubleType()))
-            dic = map(lambda row: row.asDict(), df.collect())
+            dic = list(map(lambda row: row.asDict(), df.collect()))
             dic_list.append(dic)
             if symbol == 'TSM':
                 tsm_dic = dic
             if len(dic) < min_count:
                 min_count = len(dic)
+            print(symbol, 'done')
+
             
         except:
-            print(symbol)
+            print(symbol, 'has error')
             continue
 
     process_dic = list()
@@ -152,9 +154,4 @@ if __name__ == '__main__':
     p = Pipeline(stages=[va, encoded, spark_model]).fit(final_df)
     p.write().overwrite().save(ckptpath)
 
-    print('task all done')
-    print()
-    print()
-    print()
-    print()
-    print()
+    print('===task all done===')
